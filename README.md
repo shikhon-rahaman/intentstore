@@ -182,3 +182,11 @@ intentstore/
 ## License
 
 See [LICENSE](LICENSE).
+
+---
+
+## Known Limitations
+
+- **eBPF is simulated, not live.** `ebpf_simulator.py` models realistic syscall patterns for demo purposes. Real kernel tracing (via `bcc`/`libbpf`) is the natural next step.
+- **`/scan` is restricted to the user's home directory by design**, both for safety and to avoid indexing system files. Override via `INTENTSTORE_SCAN_ROOT` if needed.
+- **`DELETE` recommendations require a live `GROQ_API_KEY`.** Without it, the heuristic fallback only ever suggests `KEEP` / `ARCHIVE_SOON` / `ARCHIVE_NOW`, never `DELETE` — that judgment call needs LLM reasoning, not just file age.
