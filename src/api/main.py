@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 import os
 import sys
 
@@ -5,12 +8,14 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../../"))
 
 try:
     from fastapi import FastAPI, HTTPException
+    from fastapi.middleware.cors import CORSMiddleware
     from pydantic import BaseModel
     FASTAPI_AVAILABLE = True
 except ImportError:
     FASTAPI_AVAILABLE = False
     FastAPI = None
     HTTPException = Exception
+    CORSMiddleware = None
 
     class BaseModel:
         pass
@@ -28,6 +33,12 @@ if FASTAPI_AVAILABLE:
         title="IntentStore API",
         description="LLM-powered semantic storage intelligence for CDAC SSM Next-Gen Kernel",
         version=__version__,
+    )
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_methods=["*"],
+        allow_headers=["*"],
     )
 
     class ScanRequest(BaseModel):
