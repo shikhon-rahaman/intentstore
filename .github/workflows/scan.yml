@@ -2,21 +2,16 @@ name: IntentStore CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   scan:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
-
-      - name: Install dependencies
-        run: pip install watchdog requests numpy rich
-
+          python-version: "3.12"
       - name: Health check
-        run: python -c "import sqlite3; print('IntentStore CI: OK')"
+        run: python -c "import sqlite3; print(42)"
