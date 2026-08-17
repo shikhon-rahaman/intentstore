@@ -84,5 +84,38 @@ if FASTAPI_AVAILABLE:
             logger.error("GET /report failed: %s", exc)
             raise HTTPException(status_code=500, detail=str(exc))
 
-    # Only allow scanning inside the user's home directory (or an explicit
-    #
+    ALLOWED_ROOT = os.path.abspath(
+        os.environ.get("INTENTSTORE_SCAN_ROOT", os.path.expanduser("~"))
+    )
+
+    @app.post("/scan", response_model=ScanResponse)
+    def scan(req: ScanRequest):
+        try:
+            target = os.path.abspath(req.path)
+
+            if os.path.commonpath([target, ALLOWED_ROOT]) != ALLOWED_ROOT:
+                raise HTTPException(
+                    status_code=403,
+                    detail=f"Scanning outside {ALLOWED_ROOT} is not permitted.",
+                )
+
+            if not os.path.isdir(target):
+                raise HTTPException(status_code=400, detail=f"Not a directory: {target}")
+
+            count = scan_directory(target)
+            all_files = get_all_files()
+            results = batch_analyze(all_files[:30], verbose=False)
+
+            return ScanResponse(
+                path=target,
+                files_found=count,
+                files_analyzed=len(results),
+            )
+        except HTTPException:
+            raise
+        except Exception as exc:
+            logger.error("POST /scan failed: %s", exc)
+            raise HTTPException(status_code=500, detail=str(exc))
+else:
+    app = None
+    logger.warning("fastapi not installed — REST API unavailable")
