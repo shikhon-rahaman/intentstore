@@ -5,4 +5,5 @@ scipy
 matplotlib
 rich
 fastapi
-uvicorn"python-dotenv" 
+uvicorn
+python-dotenv
