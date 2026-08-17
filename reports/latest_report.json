@@ -1,0 +1,133 @@
+{
+  "generated_at": "2026-08-17T18:40:43.650802",
+  "stats": {
+    "total_files": 13,
+    "urgent_files": 0,
+    "total_size_mb": 0.03,
+    "total_events": 15
+  },
+  "totals": {
+    "total_files": 13,
+    "total_size_bytes": 27166,
+    "total_size_mb": 0.03,
+    "archivable_files": 0,
+    "archivable_size_bytes": 0,
+    "archivable_size_mb": 0.0,
+    "keep_size_bytes": 27166,
+    "keep_size_mb": 0.03,
+    "potential_savings_pct": 0.0
+  },
+  "by_recommendation": {
+    "KEEP": {
+      "file_count": 13,
+      "total_size_bytes": 27166,
+      "total_size_mb": 0.03,
+      "files": [
+        {
+          "path": "C:\\Users\\SHIKHON\\intentstore\\.github\\workflows\\scan.yml",
+          "size_bytes": 510,
+          "size_mb": 0.0,
+          "archival_urgency": 0.566,
+          "archival_recommendation": "KEEP",
+          "content_summary": "Recently active .yml file"
+        },
+        {
+          "path": "C:\\Users\\SHIKHON\\intentstore\\src\\database.py",
+          "size_bytes": 4444,
+          "size_mb": 0.0,
+          "archival_urgency": 0.463,
+          "archival_recommendation": "KEEP",
+          "content_summary": "Recently active .py file"
+        },
+        {
+          "path": "C:\\Users\\SHIKHON\\intentstore\\src\\cli\\dashboard.py",
+          "size_bytes": 5675,
+          "size_mb": 0.01,
+          "archival_urgency": 0.463,
+          "archival_recommendation": "KEEP",
+          "content_summary": "Recently active .py file"
+        },
+        {
+          "path": "C:\\Users\\SHIKHON\\intentstore\\src\\collector\\file_watcher.py",
+          "size_bytes": 3192,
+          "size_mb": 0.0,
+          "archival_urgency": 0.463,
+          "archival_recommendation": "KEEP",
+          "content_summary": "Recently active .py file"
+        },
+        {
+          "path": "C:\\Users\\SHIKHON\\intentstore\\src\\engine\\semantic_engine.py",
+          "size_bytes": 7391,
+          "size_mb": 0.01,
+          "archival_urgency": 0.208,
+          "archival_recommendation": "KEEP",
+          "content_summary": "Recently active .py file"
+        },
+        {
+          "path": "C:\\Users\\SHIKHON\\intentstore\\run_demo.py",
+          "size_bytes": 2127,
+          "size_mb": 0.0,
+          "archival_urgency": 0.206,
+          "archival_recommendation": "KEEP",
+          "content_summary": "Recently active .py file"
+        },
+        {
+          "path": "C:\\Users\\SHIKHON\\intentstore\\src\\api\\main.py",
+          "size_bytes": 1589,
+          "size_mb": 0.0,
+          "archival_urgency": 0.206,
+          "archival_recommendation": "KEEP",
+          "content_summary": "Recently active .py file"
+        },
+        {
+          "path": "C:\\Users\\SHIKHON\\intentstore\\src\\engine\\ebpf_simulator.py",
+          "size_bytes": 2170,
+          "size_mb": 0.0,
+          "archival_urgency": 0.206,
+          "archival_recommendation": "KEEP",
+          "content_summary": "Recently active .py file"
+        },
+        {
+          "path": "C:\\Users\\SHIKHON\\intentstore\\src\\_init_.py",
+          "size_bytes": 0,
+          "size_mb": 0.0,
+          "archival_urgency": 0.1412,
+          "archival_recommendation": "KEEP",
+          "content_summary": "Recently active .py file"
+        },
+        {
+          "path": "C:\\Users\\SHIKHON\\intentstore\\src\\cli\\_init_.py",
+          "size_bytes": 0,
+          "size_mb": 0.0,
+          "archival_urgency": 0.1412,
+          "archival_recommendation": "KEEP",
+          "content_summary": "Recently active .py file"
+        },
+        {
+          "path": "C:\\Users\\SHIKHON\\intentstore\\src\\collector\\_init_.py",
+          "size_bytes": 0,
+          "size_mb": 0.0,
+          "archival_urgency": 0.1412,
+          "archival_recommendation": "KEEP",
+          "content_summary": "Recently active .py file"
+        },
+        {
+          "path": "C:\\Users\\SHIKHON\\intentstore\\src\\engine\\_init_.py",
+          "size_bytes": 0,
+          "size_mb": 0.0,
+          "archival_urgency": 0.1412,
+          "archival_recommendation": "KEEP",
+          "content_summary": "Recently active .py file"
+        },
+        {
+          "path": "C:\\Users\\SHIKHON\\intentstore\\requirements.txt",
+          "size_bytes": 68,
+          "size_mb": 0.0,
+          "archival_urgency": 0.1409,
+          "archival_recommendation": "KEEP",
+          "content_summary": "Recently active .txt file"
+        }
+      ]
+    }
+  }
+}

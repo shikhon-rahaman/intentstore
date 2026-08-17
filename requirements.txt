@@ -4,3 +4,5 @@ numpy
 scipy
 matplotlib
 rich
+fastapi
+uvicorn
