@@ -10,6 +10,18 @@ IntentStore watches filesystem activity (via eBPF-style syscall tracing), scores
 
 ---
 
+## Dashboard Preview
+
+![IntentStore Dashboard](assets/dashboard.png)
+
+---
+
+## System Architecture
+
+![IntentStore Architecture](assets/intentstore_architecture.png)
+
+---
+
 ## Quick Start
 
 ```bash
@@ -102,30 +114,6 @@ Traditional tools answer *"where is the space?"* IntentStore answers *"what shou
 
 ---
 
-## Architecture
-
-```
-┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
-│  eBPF Simulator │────▶│  SQLite Database  │◀────│  File Watcher   │
-│  (syscall trace)│     │  file_metadata    │     │  (scan + watch) │
-└─────────────────┘     │  access_events    │     └─────────────────┘
-                        └────────┬─────────┘
-                                 │
-                        ┌────────▼─────────┐
-                        │ Semantic Engine  │
-                        │ S, A, F → Urgency│
-                        └────────┬─────────┘
-                                 │
-                   ┌─────────────┼─────────────┐
-                   │             │             │
-            ┌──────▼──────┐ ┌────▼────┐ ┌──────▼──────┐
-            │ Rich CLI    │ │ FastAPI │ │ run_demo.py │
-            │  dashboard  │ │  REST   │ │  (CI demo)  │
-            └─────────────┘ └─────────┘ └─────────────┘
-```
-
----
-
 ## CLI Commands
 
 ```bash
@@ -156,17 +144,22 @@ Interactive docs: http://127.0.0.1:8000/docs
 
 ```
 intentstore/
-├── run_demo.py                  # One-command hackathon demo
-├── DEMO_SCRIPT.md               # 2-minute judge walkthrough
+├── run_demo.py                   # One-command hackathon demo
+├── DEMO_SCRIPT.md                # 2-minute judge walkthrough
+├── frontend/                     # Web dashboard (HTML/JS/CSS)
+│   └── index.html                # Live semantic storage dashboard
+├── assets/                       # Screenshots and diagrams
+│   ├── dashboard.png             # Live dashboard screenshot
+│   └── intentstore_architecture.png  # System architecture diagram
 ├── src/
-│   ├── database.py              # SQLite persistence layer
-│   ├── api/main.py              # FastAPI REST API
-│   ├── cli/dashboard.py         # Rich CLI dashboard
-│   ├── collector/file_watcher.py# Filesystem scan + watch
+│   ├── database.py               # SQLite persistence layer
+│   ├── api/main.py               # FastAPI REST API
+│   ├── cli/dashboard.py          # Rich CLI dashboard
+│   ├── collector/file_watcher.py # Filesystem scan + watch
 │   └── engine/
-│       ├── semantic_engine.py   # SAE scoring + LLM analysis
-│       └── ebpf_simulator.py   # eBPF syscall trace simulator
-└── .github/workflows/scan.yml   # CI runs run_demo.py on every push
+│       ├── semantic_engine.py    # SAE scoring + LLM analysis
+│       └── ebpf_simulator.py     # eBPF syscall trace simulator
+└── .github/workflows/scan.yml    # CI on every push
 ```
 
 ---
